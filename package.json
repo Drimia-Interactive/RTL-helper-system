@@ -1,0 +1,15 @@
+{
+    "name": "com.drimiainteractive.rtl-helper-system",
+    "displayName": "RTL helper system",
+    "version": "0.0.1",
+    "unity": "2019.2",
+    "description": "RTL helper system is a package that helps you to manage RTL (Right To Left) in the UI.",
+    "keywords": ["rtl", "right", "to", "left"],
+    "dependencies": {
+    },
+    "author": {
+		"name": "Omer Zadok",
+		"email": "ozadok@gmail.com",
+		"url": "https://github.com/OZadok"
+	}
+}
