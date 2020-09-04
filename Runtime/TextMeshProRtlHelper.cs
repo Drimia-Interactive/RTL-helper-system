@@ -4,85 +4,60 @@ using UnityEngine;
 namespace DrimiaInteractive.RtlHelperSystem
 {
 	[RequireComponent(typeof(TMP_Text))]
-	public class TextMeshProRtlHelper : MonoBehaviour
+	public class TextMeshProRtlHelper : RtlHelperComponent<TMP_Text>
 	{
-		[SerializeField] private TMP_Text textComponent;
-
-		[SerializeField] protected bool m_isRightToLeft = false;
-
-		public bool isRightToLeftText
+		protected override void RtlChanged()
 		{
-			get { return m_isRightToLeft; }
-			set
-			{
-				if (m_isRightToLeft == value)
-					return;
-				m_isRightToLeft = value;
-				ReverseText();
-				ChangeAlignment();
-			}
+			ReverseText();
+			ChangeAlignment();
 		}
 
 		private void ReverseText()
 		{
-			textComponent.isRightToLeftText = m_isRightToLeft;
+			tComponent.isRightToLeftText = m_isRightToLeft;
 		}
 
 		private void ChangeAlignment()
 		{
-			switch (textComponent.alignment)
+			switch (tComponent.alignment)
 			{
 				case TextAlignmentOptions.Right:
-					textComponent.alignment = TextAlignmentOptions.Left;
+					tComponent.alignment = TextAlignmentOptions.Left;
 					break;
 				case TextAlignmentOptions.Left:
-					textComponent.alignment = TextAlignmentOptions.Right;
+					tComponent.alignment = TextAlignmentOptions.Right;
 					break;
 				case TextAlignmentOptions.TopRight:
-					textComponent.alignment = TextAlignmentOptions.TopLeft;
+					tComponent.alignment = TextAlignmentOptions.TopLeft;
 					break;
 				case TextAlignmentOptions.TopLeft:
-					textComponent.alignment = TextAlignmentOptions.TopRight;
+					tComponent.alignment = TextAlignmentOptions.TopRight;
 					break;
 				case TextAlignmentOptions.BottomRight:
-					textComponent.alignment = TextAlignmentOptions.BottomLeft;
+					tComponent.alignment = TextAlignmentOptions.BottomLeft;
 					break;
 				case TextAlignmentOptions.BottomLeft:
-					textComponent.alignment = TextAlignmentOptions.BottomRight;
+					tComponent.alignment = TextAlignmentOptions.BottomRight;
 					break;
 				case TextAlignmentOptions.BaselineRight:
-					textComponent.alignment = TextAlignmentOptions.BaselineLeft;
+					tComponent.alignment = TextAlignmentOptions.BaselineLeft;
 					break;
 				case TextAlignmentOptions.BaselineLeft:
-					textComponent.alignment = TextAlignmentOptions.BaselineRight;
+					tComponent.alignment = TextAlignmentOptions.BaselineRight;
 					break;
 				case TextAlignmentOptions.CaplineRight:
-					textComponent.alignment = TextAlignmentOptions.CaplineLeft;
+					tComponent.alignment = TextAlignmentOptions.CaplineLeft;
 					break;
 				case TextAlignmentOptions.CaplineLeft:
-					textComponent.alignment = TextAlignmentOptions.CaplineRight;
+					tComponent.alignment = TextAlignmentOptions.CaplineRight;
 					break;
 				case TextAlignmentOptions.MidlineRight:
-					textComponent.alignment = TextAlignmentOptions.MidlineLeft;
+					tComponent.alignment = TextAlignmentOptions.MidlineLeft;
 					break;
 				case TextAlignmentOptions.MidlineLeft:
-					textComponent.alignment = TextAlignmentOptions.MidlineRight;
+					tComponent.alignment = TextAlignmentOptions.MidlineRight;
 					break;
 			}
-		}
-
-
-		protected void Awake()
-		{
-			if (textComponent == null)
-			{
-				textComponent = GetComponent<TMP_Text>();
-			}
-		}
-
-		protected void Reset()
-		{
-			textComponent = GetComponent<TMP_Text>();
 		}
 	}
 }

@@ -1,7 +1,8 @@
 {
     "name": "com.DrimiaInteractive.RTL-helper-system.Editor",
     "references": [
-        "GUID:05170d8070b94314f8aed5f47f456a65"
+        "GUID:05170d8070b94314f8aed5f47f456a65",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [
         "Editor"
