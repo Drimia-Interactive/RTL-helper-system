@@ -6,6 +6,7 @@
     "description": "RTL helper system is a package that helps you to manage RTL (Right To Left) in the UI.",
     "keywords": ["rtl", "right", "to", "left"],
     "dependencies": {
+		"com.unity.textmeshpro": "2.0.1"
     },
     "author": {
 		"name": "Omer Zadok",
