@@ -38,6 +38,7 @@ https://github.com/Drimia-Interactive/RTL-helper-system.git
 we have several components that you can use
 * __Text Rtl Helper__ - add this to gameobject with a regular Text component
 * __Text Mesh Pro Rtl Helper__ - add this to gameobject with a TMP Text component
+* __RectTransform Rtl Helper__ - add this to gameobject with a RectTransform component
 
 
 ### Manager
