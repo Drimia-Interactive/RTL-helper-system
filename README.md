@@ -64,8 +64,7 @@ public class ChangeRtl : MonoBehaviour
 
 	private void LocalizationSettings_SelectedLocaleChanged(Locale locale)
 	{
-		bool isRtl = locale.Identifier.Code.Equals("he");
-		RtlHelperSystemManager.Instance.isRightToLeft = isRtl;
+		RtlHelperSystemManager.Instance.isRightToLeft = locale.Identifier.CultureInfo.TextInfo.IsRightToLeft;
 	}
 }
 ```
