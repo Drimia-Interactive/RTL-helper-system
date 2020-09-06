@@ -11,6 +11,10 @@ namespace DrimiaInteractive.RtlHelperSystem
 		{
 			get
 			{
+				if (applicationIsQuitting)
+				{
+					return null;
+				}
 				if (instance == null)
 				{
 					instance = FindObjectOfType<RtlHelperSystemManager>();
@@ -22,6 +26,12 @@ namespace DrimiaInteractive.RtlHelperSystem
 
 				return instance;
 			}
+		}
+		
+		private static bool applicationIsQuitting = false;
+		public void OnDestroy()
+		{
+			applicationIsQuitting = true;
 		}
 
 		private bool m_isRightToLeft = false;

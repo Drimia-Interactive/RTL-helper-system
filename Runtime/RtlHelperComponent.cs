@@ -29,7 +29,10 @@ namespace DrimiaInteractive.RtlHelperSystem
 
 		private void OnDisable()
 		{
-			RtlHelperSystemManager.Instance.UnregisterRtlHelperComponent(this);
+			if (RtlHelperSystemManager.Instance != null)
+			{
+				RtlHelperSystemManager.Instance.UnregisterRtlHelperComponent(this);
+			}
 		}
 	}
 	public abstract class RtlHelperComponent<T> : RtlHelperComponentNoGeneric
