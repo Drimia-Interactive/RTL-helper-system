@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using ArabicSupport;
+using TMPro;
 using UnityEngine;
 
 namespace DrimiaInteractive.RtlHelperSystem
@@ -6,15 +8,46 @@ namespace DrimiaInteractive.RtlHelperSystem
 	[RequireComponent(typeof(TMP_Text))]
 	public class TextMeshProRtlHelper : RtlHelperComponent<TMP_Text>
 	{
+		public enum FixType
+		{
+			ArabicLettersSupport, TextMeshPro
+		}
+		
+
+		public bool fixTextWithRtlChange = false;
+		public FixType fixType;
 		protected override void RtlChanged()
 		{
-			ReverseText();
+			if (fixTextWithRtlChange)
+			{
+				FixText(tComponent.text);
+			}
+
 			ChangeAlignment();
 		}
 
-		private void ReverseText()
+		public void OnTextChanged(string newText)
 		{
-			tComponent.isRightToLeftText = m_isRightToLeft;
+			if (fixTextWithRtlChange)
+			{
+				return;
+			}
+			FixText(newText);
+		}
+		
+		private void FixText(string text)
+		{
+			switch (fixType)
+			{
+				case FixType.ArabicLettersSupport:
+					tComponent.text = RtlHelperSystemManager.Instance.GetFixedString(text);
+					break;
+				case FixType.TextMeshPro:
+					tComponent.isRightToLeftText = isRightToLeftText;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
 		}
 
 		private void ChangeAlignment()

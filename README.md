@@ -2,6 +2,9 @@
 RTL helper system is a Unity package that helps you to manage RTL (Right To Left) in the UI.
 This system is for addition to localization systems with languages that are written from right to left.
 
+This package used [Arabic Letters Support For Unity](https://github.com/Konash/arabic-support-unity).
+For automatic line drop, you need to use TMP insted of regular Unity's text component.
+
 ## How to bring it to your project
 
 You can bring it to your project in three different ways: downloading this repository, adding it to your project's Package Manager manifest, or through the Package Manager window.
@@ -41,6 +44,7 @@ we have several components that you can use
 * __RectTransform Rtl Helper__ - add this to gameobject with a RectTransform component
 * __RectTransform With Children Rtl Helper__ - add this to gameobject with a RectTransform component that you wish to convert RTL to it and all of it children gameobjects.
 
+for the two Text component you can choose to change the text automaticly with the change of RTL or by using the function `OnTextChanged`
 
 ### Manager
 To make all the UI move between Left to Right, you just need to change one boolean.

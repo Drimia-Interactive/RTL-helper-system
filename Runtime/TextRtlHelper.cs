@@ -1,4 +1,5 @@
 ﻿using System;
+using ArabicSupport;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,15 +8,29 @@ namespace DrimiaInteractive.RtlHelperSystem
 	[RequireComponent(typeof(Text))]
 	public class TextRtlHelper : RtlHelperComponent<Text>
 	{
+		public bool fixTextWithRtlChange = false;
 		protected override void RtlChanged()
 		{
-			ReverseText();
+			if (isRightToLeftText && fixTextWithRtlChange)
+			{
+				FixText(tComponent.text);
+			}
+
 			ChangeAlignment();
 		}
 
-		private void ReverseText()
+		public void OnTextChanged(string newText)
 		{
-			tComponent.text = Reverse(tComponent.text);
+			if (fixTextWithRtlChange)
+			{
+				return;
+			}
+			FixText(newText);
+		}
+		
+		private void FixText(string text)
+		{
+			tComponent.text = RtlHelperSystemManager.Instance.GetFixedString(text);
 		}
 
 		private static string Reverse(string s)

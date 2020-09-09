@@ -13,7 +13,7 @@ namespace DrimiaInteractive.RtlHelperSystem.EditorUtilities
         protected SerializedProperty m_IsRightToLeftProp;
         protected SerializedProperty tComponent;
 
-        private RtlHelperComponent<T> tRtlHelper;
+        protected RtlHelperComponent<T> tRtlHelper;
         
         protected virtual void OnEnable()
         {

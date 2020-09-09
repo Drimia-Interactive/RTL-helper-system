@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ArabicSupport;
 using UnityEngine;
 
 namespace DrimiaInteractive.RtlHelperSystem
@@ -15,6 +16,7 @@ namespace DrimiaInteractive.RtlHelperSystem
 				{
 					return null;
 				}
+
 				if (instance == null)
 				{
 					instance = FindObjectOfType<RtlHelperSystemManager>();
@@ -27,8 +29,13 @@ namespace DrimiaInteractive.RtlHelperSystem
 				return instance;
 			}
 		}
-		
+
+		//for Arabic Letters Support
+		public bool ShowTashkeel = false;
+		public bool UseHinduNumbers = false;
+
 		private static bool applicationIsQuitting = false;
+
 		public void OnDestroy()
 		{
 			applicationIsQuitting = true;
@@ -66,6 +73,11 @@ namespace DrimiaInteractive.RtlHelperSystem
 			{
 				rtlHelperComponent.isRightToLeftText = m_isRightToLeft;
 			}
+		}
+
+		public string GetFixedString(string str)
+		{
+			return ArabicFixer.Fix(str, ShowTashkeel, UseHinduNumbers);
 		}
 	}
 }
