@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿#if PACKAGE_TMP
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,3 +29,4 @@ namespace DrimiaInteractive.RtlHelperSystem.EditorUtilities
 		}
 	}
 }
+#endif

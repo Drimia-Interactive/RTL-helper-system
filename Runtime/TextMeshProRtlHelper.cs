@@ -1,5 +1,5 @@
-﻿using System;
-using ArabicSupport;
+﻿#if PACKAGE_TMP
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -10,12 +10,14 @@ namespace DrimiaInteractive.RtlHelperSystem
 	{
 		public enum FixType
 		{
-			ArabicLettersSupport, TextMeshPro
+			ArabicLettersSupport,
+			TextMeshPro
 		}
-		
+
 
 		public bool fixTextWithRtlChange = false;
 		public FixType fixType;
+
 		protected override void RtlChanged()
 		{
 			if (fixTextWithRtlChange)
@@ -32,9 +34,10 @@ namespace DrimiaInteractive.RtlHelperSystem
 			{
 				return;
 			}
+
 			FixText(newText);
 		}
-		
+
 		private void FixText(string text)
 		{
 			switch (fixType)
@@ -94,3 +97,4 @@ namespace DrimiaInteractive.RtlHelperSystem
 		}
 	}
 }
+#endif
