@@ -8,6 +8,22 @@ namespace DrimiaInteractive.RtlHelperSystem
 	[RequireComponent(typeof(Text))]
 	public class TextRtlHelper : RtlHelperComponent<Text>
 	{
+		public virtual string text
+		{
+			get => tComponent.text;
+			set
+			{
+				if (isRightToLeftText)
+				{
+					FixText(value);
+				}
+				else
+				{
+					tComponent.text = value;
+				}
+			}
+		}
+
 		public bool fixTextWithRtlChange = false;
 		protected override void RtlChanged()
 		{

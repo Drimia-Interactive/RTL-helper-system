@@ -4,9 +4,14 @@ namespace DrimiaInteractive.RtlHelperSystem
 {
     public class RectTransformWithChildrenRtlHelper : RectTransformRtlHelper
     {
+        public bool includeSelf;
         protected override void RtlChanged()
         {
-            base.RtlChanged();
+            if (includeSelf)
+            {
+                base.RtlChanged();
+            }
+
             ChangeAlignmentForChildren();
         }
 
