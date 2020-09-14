@@ -35,8 +35,9 @@ namespace DrimiaInteractive.RtlHelperSystem
 		public bool UseHinduNumbers = false;
 
 		private static bool applicationIsQuitting = false;
+		
 
-		public void OnDestroy()
+		private void OnApplicationQuit()
 		{
 			applicationIsQuitting = true;
 		}
